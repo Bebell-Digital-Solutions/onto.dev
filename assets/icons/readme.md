@@ -17,9 +17,6 @@
       <td align="center" width="96">
         <img src="assets/icons/svg/credit-card.svg" width="48" height="48" alt="Credit Card" /><br>credit-card.json
       </td>
-    </tr>
-    <!-- Row 2 -->
-    <tr>
       <td align="center" width="96">
         <img src="assets/icons/svg/dollar-sign.svg" width="48" height="48" alt="Dollar Sign" /><br>dollar-sign.json
       </td>
@@ -33,7 +30,7 @@
         <img src="assets/icons/svg/globe.svg" width="48" height="48" alt="Globe" /><br>globe.json
       </td>
     </tr>
-    <!-- Row 3 -->
+    <!-- Row 2 -->
     <tr>
       <td align="center" width="96">
         <img src="assets/icons/svg/home.svg" width="48" height="48" alt="Home" /><br>home.json
@@ -47,9 +44,6 @@
       <td align="center" width="96">
         <img src="assets/icons/svg/log-in.svg" width="48" height="48" alt="Log In" /><br>log-in.json
       </td>
-    </tr>
-    <!-- Row 4 -->
-    <tr>
       <td align="center" width="96">
         <img src="assets/icons/svg/mail.svg" width="48" height="48" alt="Mail" /><br>mail.json
       </td>
@@ -63,7 +57,7 @@
         <img src="assets/icons/svg/message-square.svg" width="48" height="48" alt="Message Square" /><br>message-square.json
       </td>
     </tr>
-    <!-- Row 5 -->
+    <!-- Row 3 -->
     <tr>
       <td align="center" width="96">
         <img src="assets/icons/svg/moon.svg" width="48" height="48" alt="Moon" /><br>moon.json
@@ -77,9 +71,6 @@
       <td align="center" width="96">
         <img src="assets/icons/svg/settings.svg" width="48" height="48" alt="Settings" /><br>settings.json
       </td>
-    </tr>
-    <!-- Row 6 (Note: settings.svg appears twice in your image) -->
-    <tr>
       <td align="center" width="96">
         <img src="assets/icons/svg/settings.svg" width="48" height="48" alt="Settings" /><br>settings.json
       </td>
@@ -93,7 +84,7 @@
         <img src="assets/icons/svg/sun.svg" width="48" height="48" alt="Sun" /><br>sun.json
       </td>
     </tr>
-    <!-- Row 7 -->
+    <!-- Row 4 -->
     <tr>
       <td align="center" width="96">
         <img src="assets/icons/svg/tag.svg" width="48" height="48" alt="Tag" /><br>tag.json
