@@ -370,7 +370,7 @@
             
              <!-- Products Dropdown Item -->
             <div class="relative" id="services-dropdown-container">
-              <button type="button" id="services-btn" class="flex items-center gap-1.5 hover:opacity-80 transition-opacity py-1 focus:outline-none">
+              <button type="button" id="products-btn" class="flex items-center gap-1.5 hover:opacity-80 transition-opacity py-1 focus:outline-none">
                 <span>Products</span>
                 <i data-lucide="chevron-down" id="products-chevron" class="w-4 h-4 transition-transform duration-200"></i>
               </button>
@@ -434,7 +434,7 @@
         <!-- Right Side: Action Buttons (Desktop Only) -->
         <div class="hidden lg:flex items-center gap-3">
         
-                    <button type="button" onclick="openModal('signin')" class="font-manrope font-semibold text-[14px] bg-white text-[#171717] border border-[#d4d4d4] rounded-[8px] px-4 py-2.5 hover:bg-[#f6f7f9] active:scale-[0.99] transition-all">
+          <button type="button" onclick="openModal('signin')" class="font-manrope font-semibold text-[14px] bg-white text-[#171717] border border-[#d4d4d4] rounded-[8px] px-4 py-2.5 hover:bg-[#f6f7f9] active:scale-[0.99] transition-all">
             Client Portal
           </button>
           
@@ -501,6 +501,17 @@
       </div>
     </div>
 
+    <div class="flex items-center gap-2 font-manrope font-medium text-2xl text-white">
+        <span>Products</span>
+        <i data-lucide="chevron-down" class="w-5 h-5 text-[#a7da32]"></i>
+      </div>
+      <div class="pl-4 border-l border-[#a7da32]/40 space-y-3">
+        <button type="button" onclick="closeMobileMenu(); showToast('Selected Instant Resort Booking');" class="block text-left font-manrope text-base text-white/80 hover:text-[#a7da32]">Instant Resort Booking</button>
+        <button type="button" onclick="closeMobileMenu(); showToast('Selected Curated Itineraries');" class="block text-left font-manrope text-base text-white/80 hover:text-[#a7da32]">Curated Itineraries</button>
+        <button type="button" onclick="closeMobileMenu(); showToast('Selected 24/7 Concierge Desk');" class="block text-left font-manrope text-base text-white/80 hover:text-[#a7da32]">24/7 Concierge Desk</button>
+      </div>
+    </div>
+
     <a href="#" onclick="closeMobileMenu(); showToast('4.98/5 Average Guest Rating'); return false;" class="font-manrope font-medium text-2xl text-white hover:text-[#a7da32] transition-colors">Reviews</a>
     <a href="#" onclick="closeMobileMenu(); openModal('demo'); return false;" class="font-manrope font-medium text-2xl text-white hover:text-[#a7da32] transition-colors">Contact us</a>
   </div>
@@ -517,7 +528,7 @@
       />
     </div>
     
-    <button type="button" onclick="closeMobileMenu(); openModal('signin');" class="w-full flex items-center justify-center font-manrope font-semibold text-[14px] bg-white text-[#171717] border border-[#d4d4d4] rounded-[8px] py-3.5 px-4 hover:bg-[#f6f7f9] transition-colors">Customer Portal</button>
+    <button type="button" onclick="closeMobileMenu(); openModal('signin');" class="w-full flex items-center justify-center mt-4 font-manrope font-semibold text-[14px] bg-white text-[#171717] border border-[#d4d4d4] rounded-[8px] py-3.5 px-4 hover:bg-[#f6f7f9] transition-colors">Customer Portal</button>
     <button type="button" onclick="closeMobileMenu(); openModal('get-started');" class="w-full flex items-center justify-center gap-2 font-manrope font-semibold text-[14px] bg-[#a7da32] hover:bg-[#b9e754] text-[#151517] rounded-[8px] py-3.5 px-4 shadow-[0_4px_20px_rgba(167,218,50,0.25)] transition-colors">
       <lottie-player
           src="/assets/icons/calendar.json"
