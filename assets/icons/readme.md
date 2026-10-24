@@ -48,7 +48,6 @@
         <img src="assets/icons/svg/log-in.svg" width="48" height="48" alt="Log In" /><br>log-in.json
       </td>
     </tr>
-
     <!-- Row 4 -->
     <tr>
       <td align="center" width="96">
@@ -64,7 +63,6 @@
         <img src="assets/icons/svg/message-square.svg" width="48" height="48" alt="Message Square" /><br>message-square.json
       </td>
     </tr>
-
     <!-- Row 5 -->
     <tr>
       <td align="center" width="96">
@@ -80,7 +78,6 @@
         <img src="assets/icons/svg/settings.svg" width="48" height="48" alt="Settings" /><br>settings.json
       </td>
     </tr>
-
     <!-- Row 6 (Note: settings.svg appears twice in your image) -->
     <tr>
       <td align="center" width="96">
@@ -96,7 +93,6 @@
         <img src="assets/icons/svg/sun.svg" width="48" height="48" alt="Sun" /><br>sun.json
       </td>
     </tr>
-
     <!-- Row 7 -->
     <tr>
       <td align="center" width="96">
