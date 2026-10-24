@@ -4,34 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Under Development · Coming Soon</title>
-  
-  
-  
-  
+
   <!-- Google Fonts: Oxanium (weights 400, 700) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&display=swap" rel="stylesheet">
-  
-  
-  
-  
+
   <!-- Font Awesome for subtle icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
-  
-  
+
   <!-- EmailJS SDK (for free subscription form) -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  
-  
-  
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-  
-  
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
   <style>
     /* Reset & Base */
     * {
@@ -66,6 +52,34 @@
       gap: 0.5rem;
     }
 
+    /* ------------------------------------------------------------------
+       1. LOAD REVEAL ANIMATION
+       Elements fade + rise + de-blur in a staggered sequence.
+       Stagger is controlled by the --d custom property on each element.
+    ------------------------------------------------------------------ */
+    @keyframes revealUp {
+      0% {
+        opacity: 0;
+        transform: translate3d(0, 34px, 0) scale(0.97);
+        filter: blur(14px);
+      }
+      55% {
+        opacity: 1;
+        filter: blur(0px);
+      }
+      100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+        filter: none;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      animation: revealUp 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: var(--d, 0s);
+    }
+
     /* Video – 250px wide, height auto, rounded corners only (no border/box) */
     .video-wrapper {
       width: 100%;
@@ -82,8 +96,6 @@
       margin-bottom: 0;
       /* no border, no box-shadow – plain on black */
     }
-    
-    
 
     /* Title — Oxanium Bold 700 */
     h1 {
@@ -98,8 +110,6 @@
       color: transparent;
       margin: 0;
     }
-    
-    
 
     .subhead {
       font-family: 'Oxanium', sans-serif;
@@ -173,28 +183,92 @@
       background: #141414;
     }
 
+    /* ------------------------------------------------------------------
+       2. BUTTON + LIQUID FILL HOVER
+       The ::before pseudo-element is a huge organic blob parked below the
+       button. On hover it rises up and fills the button, wobbling gently.
+    ------------------------------------------------------------------ */
     .input-group button {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;          /* keeps the blob behind the label */
+      z-index: 0;
+
       flex: 0 0 auto;
       padding: 0.95rem 2rem;
       border-radius: 10px;
       border: .3px solid #a7da32;
       background: #2b3a1e;
-      color: white;
-      font-family: 'Inter', sans-serif;
+      color: #ffffff;
+      font-family: 'Oxanium', sans-serif;
       font-weight: 600;
       font-size: 1rem;
       cursor: pointer;
-      transition: 0.2s;
       letter-spacing: 0.5px;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.5rem;
       white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+
+      transition:
+        color        0.45s ease,
+        border-color 0.45s ease,
+        box-shadow   0.5s ease,
+        transform    0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
     }
 
-    .input-group button:hover {
-      background: #384a24;
+    /* The liquid blob itself */
+    .input-group button::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 200%;
+      aspect-ratio: 1 / 1;
+      translate: -50% 52%;               /* parked fully below the button */
+      border-radius: 45% 55% 48% 52% / 52% 45% 55% 48%;
+      background: radial-gradient(
+        130% 95% at 50% 0%,
+        #eaffa0 0%,
+        #cbf457 26%,
+        #a7da32 60%,
+        #7cad1d 100%
+      );
+      z-index: -1;
+      pointer-events: none;
+      will-change: translate;
+      transition: translate 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    /* Rise + gentle wobble while hovered */
+    .input-group button:hover::before,
+    .input-group button:focus-visible::before {
+      translate: -50% -18%;
+      animation: liquidMorph 5s ease-in-out infinite;
+    }
+
+    @keyframes liquidMorph {
+      0%,
+      100% {
+        border-radius: 45% 55% 48% 52% / 52% 45% 55% 48%;
+      }
+      33% {
+        border-radius: 55% 45% 52% 48% / 45% 55% 48% 52%;
+      }
+      66% {
+        border-radius: 48% 52% 45% 55% / 55% 48% 52% 45%;
+      }
+    }
+
+    .input-group button:hover,
+    .input-group button:focus-visible {
+      color: #0a1400;                       /* dark text on the bright liquid */
+      border-color: #d4ff6e;
+      box-shadow: 0 0 26px -6px rgba(167, 218, 50, 0.55);
       transform: scale(1.02);
+      outline: none;
     }
 
     .input-group button:active {
@@ -205,12 +279,16 @@
       font-size: 1.05rem;
       color: #a7da32;
     }
-    
-   
-    
-    
-    
-    
+
+    /* Recolor the lottie send icon so it stays readable on the liquid */
+    .input-group button lottie-player {
+      transition: filter 0.4s ease;
+    }
+
+    .input-group button:hover lottie-player,
+    .input-group button:focus-visible lottie-player {
+      filter: brightness(0) opacity(0.85);
+    }
 
     /* Status messages – plain, no boxes */
     .form-message {
@@ -274,77 +352,80 @@
         width: 250px;
       }
     }
+
+    /* Respect users who prefer less motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
+      .input-group button::before {
+        transition: none;
+        animation: none !important;
+      }
+      .input-group button:hover {
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Everything directly on the black background — no containers, no cards, no borders -->
   <div class="content">
-    <!-- Video: 250px wide, auto height, autoplay + loop + muted + playsinline -->
-    <div class="video-wrapper">
-      <video 
-        autoplay 
-        loop 
-        muted 
-        playsinline 
-        width="250" 
+    <!-- Video: autoplay + loop + muted + playsinline -->
+    <div class="video-wrapper reveal" style="--d: 0.05s;">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        width="250"
         style="width:350px; height:auto;"
       >
         <source src="https://ik.imagekit.io/bebell/ONTO.DEV/Hero-Banners.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
-    
-    
 
-    <h1>Under Development</h1>
-    <div class="subhead">We're crafting something special</div>
+    <h1 class="reveal" style="--d: 0.20s;">Under Development</h1>
+    <div class="subhead reveal" style="--d: 0.32s;">We're crafting something special</div>
 
     <!-- Subscription form – plain, no background boxes -->
     <form id="subscribeForm" class="subscribe-form">
-      <label for="emailInput">
+      <label for="emailInput" class="reveal" style="--d: 0.44s;">
         <i class="fas fa-envelope"></i> Get notified when we launch
       </label>
-      <div class="input-group">
-        <input 
-          type="email" 
-          id="emailInput" 
-          name="email" 
-          placeholder="you@example.com" 
-          required 
+
+      <div class="input-group reveal" style="--d: 0.54s;">
+        <input
+          type="email"
+          id="emailInput"
+          name="email"
+          placeholder="you@example.com"
+          required
           autocomplete="email"
         >
-        
-          
-        <button type="submit"  id="subscribeBtn">
-              <lottie-player
-    src="/assets/icons/send.json"
-    data-lottie-hover
-    style="width:16px;height:16px;flex:0 0 16px"
-    class="pointer-events-none">
-  </lottie-player> 
-            Subscribe
-          </button>
-          
-          
+
+        <button type="submit" id="subscribeBtn">
+          <lottie-player
+            src="/assets/icons/send.json"
+            data-lottie-hover
+            style="width:16px;height:16px;flex:0 0 16px"
+            class="pointer-events-none">
+          </lottie-player>
+          Subscribe
+        </button>
       </div>
-      
-      
+
       <div id="formMessage" class="form-message"></div>
-      
-      <div class="privacy-note">
+
+      <div class="privacy-note reveal" style="--d: 0.68s;">
         <i class="fas fa-lock"></i> No spam. Unsubscribe anytime.
       </div>
     </form>
   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
   <script>
     (function() {
@@ -396,10 +477,10 @@
         subscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         showMessage('', '');
 
-        if (EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY" && 
-            EMAILJS_SERVICE_ID !== "YOUR_SERVICE_ID" && 
+        if (EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY" &&
+            EMAILJS_SERVICE_ID !== "YOUR_SERVICE_ID" &&
             EMAILJS_TEMPLATE_ID !== "YOUR_TEMPLATE_ID") {
-          
+
           const templateParams = {
             from_email: email,
             to_name: "Project Team",
@@ -450,26 +531,21 @@
       }
     })();
   </script>
-  
-  
-  
-  
+
   <!-- Interactive Animated Icons -->
-<script>
-  document.querySelectorAll('[data-lottie-hover]').forEach((icon) => {
-    const btn = icon.closest('button');
-    if (!btn) return;
+  <script>
+    document.querySelectorAll('[data-lottie-hover]').forEach((icon) => {
+      const btn = icon.closest('button');
+      if (!btn) return;
 
-    btn.addEventListener('mouseenter', () => {
-      icon.speed = 0.6;
-      icon.stop();
-      icon.play();
+      btn.addEventListener('mouseenter', () => {
+        icon.speed = 0.6;
+        icon.stop();
+        icon.play();
+      });
+      btn.addEventListener('mouseleave', () => icon.stop());
     });
-    btn.addEventListener('mouseleave', () => icon.stop());
-  });
-</script>
-
-
+  </script>
 
 </body>
 </html>
