@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Oxanium:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome for subtle icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -188,107 +189,50 @@
        The ::before pseudo-element is a huge organic blob parked below the
        button. On hover it rises up and fills the button, wobbling gently.
     ------------------------------------------------------------------ */
-    .input-group button {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;          /* keeps the blob behind the label */
-      z-index: 0;
+  /* ------------------------------------------------------------------
+   BUTTON (flat style)
+------------------------------------------------------------------ */
+.input-group button {
+  flex: 0 0 auto;
+  padding: 0.95rem 2rem;
+  border-radius: 60px;
+  border: none;
+  background: #568e07;
+  color: black;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
 
-      flex: 0 0 auto;
-      padding: 0.95rem 2rem;
-      border-radius: 10px;
-      border: .3px solid #a7da32;
-      background: #2b3a1e;
-      color: #ffffff;
-      font-family: 'Oxanium', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      letter-spacing: 0.5px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      white-space: nowrap;
-      -webkit-tap-highlight-color: transparent;
+.input-group button:hover {
+  background: #e0e0e0;
+  transform: scale(1.02);
+}
 
-      transition:
-        color        0.45s ease,
-        border-color 0.45s ease,
-        box-shadow   0.5s ease,
-        transform    0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
-    }
+.input-group button:active {
+  transform: scale(0.98);
+}
 
-    /* The liquid blob itself */
-    .input-group button::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 0;
-      width: 200%;
-      aspect-ratio: 1 / 1;
-      translate: -50% 52%;               /* parked fully below the button */
-      border-radius: 45% 55% 48% 52% / 52% 45% 55% 48%;
-      background: radial-gradient(
-        130% 95% at 50% 0%,
-        #eaffa0 0%,
-        #cbf457 26%,
-        #a7da32 60%,
-        #7cad1d 100%
-      );
-      z-index: -1;
-      pointer-events: none;
-      will-change: translate;
-      transition: translate 0.9s cubic-bezier(0.19, 1, 0.22, 1);
-    }
+.input-group button i {
+  font-size: 1.05rem;
+}
 
-    /* Rise + gentle wobble while hovered */
-    .input-group button:hover::before,
-    .input-group button:focus-visible::before {
-      translate: -50% -18%;
-      animation: liquidMorph 5s ease-in-out infinite;
-    }
+/* Lottie send icon — always white, no color filter */
+.input-group button lottie-player {
+  filter: none;
+}
 
-    @keyframes liquidMorph {
-      0%,
-      100% {
-        border-radius: 45% 55% 48% 52% / 52% 45% 55% 48%;
-      }
-      33% {
-        border-radius: 55% 45% 52% 48% / 45% 55% 48% 52%;
-      }
-      66% {
-        border-radius: 48% 52% 45% 55% / 55% 48% 52% 45%;
-      }
-    }
 
-    .input-group button:hover,
-    .input-group button:focus-visible {
-      color: #0a1400;                       /* dark text on the bright liquid */
-      border-color: #d4ff6e;
-      box-shadow: 0 0 26px -6px rgba(167, 218, 50, 0.55);
-      transform: scale(1.02);
-      outline: none;
-    }
 
-    .input-group button:active {
-      transform: scale(0.98);
-    }
 
-    .input-group button i {
-      font-size: 1.05rem;
-      color: #a7da32;
-    }
-
-    /* Recolor the lottie send icon so it stays readable on the liquid */
-    .input-group button lottie-player {
-      transition: filter 0.4s ease;
-    }
-
-    .input-group button:hover lottie-player,
-    .input-group button:focus-visible lottie-player {
-      filter: brightness(0) opacity(0.85);
-    }
 
     /* Status messages – plain, no boxes */
     .form-message {
@@ -355,20 +299,19 @@
 
     /* Respect users who prefer less motion */
     @media (prefers-reduced-motion: reduce) {
-      .reveal {
-        animation: none;
-        opacity: 1;
-        transform: none;
-        filter: none;
-      }
-      .input-group button::before {
-        transition: none;
-        animation: none !important;
-      }
-      .input-group button:hover {
-        transform: none;
-      }
-    }
+  .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  .input-group button:hover,
+  .input-group button:active {
+    transform: none;
+  }
+}
+
+    
   </style>
 </head>
 <body>
