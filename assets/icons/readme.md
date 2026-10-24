@@ -81,13 +81,13 @@
       <td align="center" width="96" bgcolor="#ffffff">
         <img src="https://ontolabs.net/assets/icons/svg/shopping-bag.svg" width="48" height="48" alt="User" /><br>shopping-bag.json
       </td>
-       </tr>
-    <!-- Row 4 -->
-    <tr>
       <td align="center" width="96" bgcolor="#ffffff">
         <img src="https://ontolabs.net/assets/icons/svg/shopping-bag.svg" width="48" height="48" alt="Shopping Bag" /><br>shopping-bag.json
       </td>
-    <td align="center" width="96" bgcolor="#ffffff">
+       </tr>
+    <!-- Row 4 -->
+    <tr>  
+  <td align="center" width="96" bgcolor="#ffffff">
         <img src="https://ontolabs.net/assets/icons/svg/star.svg" width="48" height="48" alt="Star" /><br>star.json
       </td>
     <td align="center" width="96" bgcolor="#ffffff">
