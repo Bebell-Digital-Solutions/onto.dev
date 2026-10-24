@@ -234,21 +234,18 @@
       transform: scale(0.98);
     }
     
-    
-/* Icon: dark by default → white on hover */
+    /* Icon: lime by default (native JSON color) → white on hover */
 .input-group button lottie-player {
-  transition: filter 0.25s ease;
-  /* convert white Lottie stroke to ~#151517 */
-  filter: brightness(0) saturate(100%) invert(6%)
-          sepia(4%) saturate(689%) hue-rotate(201deg)
-          brightness(95%) contrast(93%);
+  transition: filter 0.4s ease;
+  filter: none;                       /* lime = native color */
 }
 
 .input-group button:hover lottie-player,
 .input-group button:focus-visible lottie-player {
-  filter: none;                               /* back to native white */
+  /* convert lime → white */
+  filter: brightness(0) invert(1);
 }
-
+    
     
 
     .input-group button i {
