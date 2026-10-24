@@ -230,6 +230,21 @@
     }
     
     
+/* Icon: dark by default → white on hover */
+.input-group button lottie-player {
+  transition: filter 0.25s ease;
+  /* convert white Lottie stroke to ~#151517 */
+  filter: brightness(0) saturate(100%) invert(6%)
+          sepia(4%) saturate(689%) hue-rotate(201deg)
+          brightness(95%) contrast(93%);
+}
+
+.input-group button:hover lottie-player,
+.input-group button:focus-visible lottie-player {
+  filter: none;                               /* back to native white */
+}
+
+    
 
     .input-group button i {
       font-size: 1.05rem;
