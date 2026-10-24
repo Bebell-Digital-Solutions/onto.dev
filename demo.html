@@ -193,29 +193,40 @@
    BUTTON (flat style)
 ------------------------------------------------------------------ */
 .input-group button {
-  flex: 0 0 auto;
-  padding: 0.95rem 2rem;
-  border-radius: 60px;
-  border: none;
-  background: #568e07;
-  color: black;
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.2s;
-  letter-spacing: 0.5px;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-  -webkit-tap-highlight-color: transparent;
-}
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;          /* keeps the blob behind the label */
+      z-index: 0;
+      flex: 0 0 auto;
+      padding: 0.95rem 2rem;
+      border-radius: 10px;
+      border: .3px solid #a7da32;
+      background: #2b3a1e;
+      color: #ffffff;
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+      transition:
+        color        0.45s ease,
+        border-color 0.45s ease,
+        box-shadow   0.5s ease,
+        transform    0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
 
-.input-group button:hover {
-  background: #e0e0e0;
-  transform: scale(1.02);
-}
+
+    .input-group button:hover {
+      background: #384a24;
+      transform: scale(1.02);
+    }
+
 
 .input-group button:active {
   transform: scale(0.98);
