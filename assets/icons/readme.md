@@ -6,7 +6,7 @@
     <!-- Row 1 -->
     <tr>
       <td align="center" width="96">
-        <img src="templates/assets/icons/svg/bar-chart.svg" width="48" height="48" alt="Bar Chart" /><br>bar-chart.json
+        <img src="assets/icons/svg/bar-chart.svg" width="48" height="48" alt="Bar Chart" /><br>bar-chart.json
       </td>
       <td align="center" width="96">
         <img src="assets/icons/svg/book-open.svg" width="48" height="48" alt="Book Open" /><br>book-open.json
