@@ -55,11 +55,17 @@
         <img src="https://ontolabs.net/assets/icons/svg/menu.svg" width="48" height="48" alt="Menu" /><br>menu.json
       </td>
       <td align="center" width="96" bgcolor="#ffffff">
-        <img src="https://ontolabs.net/assets/icons/svg/message-square.svg" width="48" height="48" alt="Message Square" /><br>message-square.json
+        <img src="https://ontolabs.net/assets/icons/svg/menu-v2.svg" width="48" height="48" alt="Menu" /><br>menu-v2.json
+      </td>
+      <td align="center" width="96" bgcolor="#ffffff">
+        <img src="https://ontolabs.net/assets/icons/svg/menu-v3.svg" width="48" height="48" alt="Menu" /><br>menu-v3.json
       </td>
     </tr>
     <!-- Row 3 -->
     <tr>
+    <td align="center" width="96" bgcolor="#ffffff">
+        <img src="https://ontolabs.net/assets/icons/svg/message-square.svg" width="48" height="48" alt="Message Square" /><br>message-square.json
+      </td>
       <td align="center" width="96" bgcolor="#ffffff">
         <img src="https://ontolabs.net/assets/icons/svg/moon.svg" width="48" height="48" alt="Moon" /><br>moon.json
       </td>
@@ -78,15 +84,15 @@
       <td align="center" width="96" bgcolor="#ffffff">
         <img src="https://ontolabs.net/assets/icons/svg/shopping-bag.svg" width="48" height="48" alt="Shopping Bag" /><br>shopping-bag.json
       </td>
-      <td align="center" width="96" bgcolor="#ffffff">
-        <img src="https://ontolabs.net/assets/icons/svg/star.svg" width="48" height="48" alt="Star" /><br>star.json
-      </td>
-      <td align="center" width="96" bgcolor="#ffffff">
-        <img src="https://ontolabs.net/assets/icons/svg/sun.svg" width="48" height="48" alt="Sun" /><br>sun.json
-      </td>
-    </tr>
+      </tr>
     <!-- Row 4 -->
     <tr>
+    <td align="center" width="96" bgcolor="#ffffff">
+        <img src="https://ontolabs.net/assets/icons/svg/star.svg" width="48" height="48" alt="Star" /><br>star.json
+      </td>
+    <td align="center" width="96" bgcolor="#ffffff">
+        <img src="https://ontolabs.net/assets/icons/svg/sun.svg" width="48" height="48" alt="Sun" /><br>sun.json
+      </td>
       <td align="center" width="96" bgcolor="#ffffff">
         <img src="https://ontolabs.net/assets/icons/svg/tag.svg" width="48" height="48" alt="Tag" /><br>tag.json
       </td>
