@@ -304,8 +304,6 @@
               </div>
             </div>
             
-            
-            
 
             <a href="#" onclick="showToast('4.98/5 Average Guest Rating across 120k+ stays'); return false;" class="hover:opacity-80 transition-opacity py-1">Reviews</a>
             
@@ -318,13 +316,21 @@
 
         <!-- Right Side: Action Buttons (Desktop Only) -->
         <div class="hidden lg:flex items-center gap-3">
+          
           <button type="button" onclick="openModal('signin')" class="font-manrope font-semibold text-[14px] bg-white text-[#171717] border border-[#d4d4d4] rounded-[8px] px-4 py-2.5 hover:bg-[#f6f7f9] active:scale-[0.99] transition-all">
             Client Portal
           </button>
-          <button type="button" onclick="openModal('get-started')" class="font-manrope font-semibold text-[14px] bg-[#a7da32] hover:bg-[#b9e754] text-[#151517] rounded-[8px] px-4 py-2.5 shadow-[0_4px_20px_rgba(167,218,50,0.25)] active:scale-[0.99] transition-all">
+          
+          <button type="button" onclick="openModal('get-started')" class="inline-flex items-center gap-2 font-manrope font-semibold text-[14px] bg-[#a7da32] hover:bg-[#b9e754] text-[#151517] rounded-[8px] px-4 py-2.5 shadow-[0_4px_20px_rgba(167,218,50,0.25)] active:scale-[0.99] transition-all">
+            <i data-lucide="calendar" class="w-4 h-4"></i>
             Let's talk
           </button>
+          
         </div>
+
+
+
+        
 
         <!-- Mobile Hamburger Menu Button -->
         <button type="button" id="mobile-menu-btn" class="lg:hidden p-2 rounded-[8px] text-white hover:bg-white/10 transition-colors focus:outline-none" aria-label="Open Menu">
@@ -337,11 +343,8 @@
     <div id="mobile-menu" class="hidden fixed inset-0 z-[70] bg-[#151517] flex-col justify-between px-6 py-[16px] animate-in fade-in duration-200 lg:hidden">
       <div class="flex items-center justify-between">
         <a href="#" onclick="closeMobileMenu(); return false;" class="flex items-center gap-2">
-          <svg width="132" height="28" viewBox="0 0 132 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1.04356 6.35771L13.6437 0.666504C14.1892 0.42012 14.8108 0.42012 15.3563 0.666504L27.9564 6.35771C28.7654 6.72311 29.2857 7.52842 29.2857 8.4162V19.5838C29.2857 20.4716 28.7654 21.2769 27.9564 21.6423L15.3563 27.3335C14.8108 27.5799 14.1892 27.5799 13.6437 27.3335L1.04356 21.6423C0.234582 21.2769 -0.285714 20.4716 -0.285714 19.5838V8.4162C-0.285714 7.52842 0.234582 6.72311 1.04356 6.35771ZM14.5 4.25L4.75 8.65V19.35L14.5 23.75L24.25 19.35V8.65L14.5 4.25Z" fill="#FFFFFF"/>
-            <path d="M14.5 8.5L20.5 11.2V16.8L14.5 19.5L8.5 16.8V11.2L14.5 8.5Z" fill="#a7da32"/>
-            <text x="38" y="19.5" fill="#FFFFFF" class="font-manrope" font-weight="700" font-size="17" letter-spacing="-0.03em">DATACORE</text>
-          </svg>
+          <img src="https://ik.imagekit.io/bebell/ONTO.DEV/onto-3d-icon.webp?updatedAt=1792807191952" alt="ONTO LABS" class="h-7 w-auto" />
+        </a>
         </a>
         <button type="button" onclick="closeMobileMenu()" class="p-2 rounded-[8px] text-white hover:bg-white/10 transition-colors" aria-label="Close Menu">
           <i data-lucide="x" class="w-6 h-6 text-white"></i>
