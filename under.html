@@ -253,18 +253,11 @@
       color: #a7da32;
     }
     
-    
-    
 
-    /* Recolor the lottie send icon so it stays readable on the liquid */
-    .input-group button lottie-player {
-      transition: filter 0.4s ease;
-    }
 
-    .input-group button:hover lottie-player,
-    .input-group button:focus-visible lottie-player {
-      filter: brightness(0) opacity(0.85);
-    }
+
+
+    
 
     /* Status messages – plain, no boxes */
     .form-message {
@@ -337,12 +330,11 @@
         transform: none;
         filter: none;
       }
-      .input-group button::before {
-        transition: none;
-        animation: none !important;
-      }
       .input-group button:hover {
-        transform: none;
+       transform: none;
+      
+        .input-group button lottie-player {
+    transition: none;
       }
     }
   </style>
