@@ -506,8 +506,19 @@
   </div>
 
   <div class="flex flex-col items-start gap-3 pb-6">
-    <button type="button" onclick="closeMobileMenu(); openModal('signin');" class="w-full text-left font-manrope font-semibold text-[14px] bg-white text-[#171717] border border-[#d4d4d4] rounded-[8px] py-3.5 px-4 hover:bg-[#f6f7f9] transition-colors">Customer Portal</button>
-    <button type="button" onclick="closeMobileMenu(); openModal('get-started');" class="w-full flex items-center justify-start gap-2 font-manrope font-semibold text-[14px] bg-[#a7da32] hover:bg-[#b9e754] text-[#151517] rounded-[8px] py-3.5 px-4 shadow-[0_4px_20px_rgba(167,218,50,0.25)] transition-colors">
+
+<!-- Image banner above buttons -->
+    <div class="w-full rounded-[10px] overflow-hidden">
+      <img
+        src="https://ik.imagekit.io/bebell/ONTO.DEV/repo-banner.png?updatedAt=1792873583991"
+        alt="Featured offer"
+        class="w-full h-auto block object-cover"
+        loading="lazy"
+      />
+    </div>
+    
+    <button type="button" onclick="closeMobileMenu(); openModal('signin');" class="w-full flex items-center justify-center font-manrope font-semibold text-[14px] bg-white text-[#171717] border border-[#d4d4d4] rounded-[8px] py-3.5 px-4 hover:bg-[#f6f7f9] transition-colors">Customer Portal</button>
+    <button type="button" onclick="closeMobileMenu(); openModal('get-started');" class="w-full flex items-center justify-center gap-2 font-manrope font-semibold text-[14px] bg-[#a7da32] hover:bg-[#b9e754] text-[#151517] rounded-[8px] py-3.5 px-4 shadow-[0_4px_20px_rgba(167,218,50,0.25)] transition-colors">
       <lottie-player
           src="/assets/icons/calendar.json"
           data-lottie-hover
