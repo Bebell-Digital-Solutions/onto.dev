@@ -1,5 +1,6 @@
-# Icons Library
-
+<div align="center">
+  <img src="https://ik.imagekit.io/bebell/ONTO.DEV/logo-3d-onto_ab18JbQOC.png?updatedAt=1792806971489" alt="Ontolabs Logo" width="200" />  
+</div>div>
 
 <div align="center">
  <table>
