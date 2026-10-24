@@ -73,7 +73,7 @@
         <img src="https://ontolabs.net/assets/icons/svg/settings.svg" width="48" height="48" alt="Settings" /><br>settings.json
       </td>
       <td align="center" width="96" bgcolor="#ffffff">
-        <img src="https://ontolabs.net/assets/icons/svg/settings.svg" width="48" height="48" alt="Settings" /><br>settings.json
+        <img src="https://ontolabs.net/assets/icons/svg/user.svg" width="48" height="48" alt="User" /><br>user.json
       </td>
       <td align="center" width="96" bgcolor="#ffffff">
         <img src="https://ontolabs.net/assets/icons/svg/shopping-bag.svg" width="48" height="48" alt="Shopping Bag" /><br>shopping-bag.json
@@ -96,9 +96,6 @@
       <td align="center" width="96" bgcolor="#ffffff">
         <img src="https://ontolabs.net/assets/icons/svg/thumb-up.svg" width="48" height="48" alt="Thumb Up" /><br>thumb-up.json
       </td>
-      <td align="center" width="96" bgcolor="#ffffff">
-        <img src="https://ontolabs.net/assets/icons/svg/user.svg" width="48" height="48" alt="User" /><br>user.json
-      </td>
-    </tr>
+      </tr>
 </table>
 </div>
