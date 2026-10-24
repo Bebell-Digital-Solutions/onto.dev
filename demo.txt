@@ -369,7 +369,7 @@
             
             
              <!-- Products Dropdown Item -->
-            <div class="relative" id="services-dropdown-container">
+            <div class="relative" id="products-dropdown-container">
               <button type="button" id="products-btn" class="flex items-center gap-1.5 hover:opacity-80 transition-opacity py-1 focus:outline-none">
                 <span>Products</span>
                 <i data-lucide="chevron-down" id="products-chevron" class="w-4 h-4 transition-transform duration-200"></i>
@@ -1061,25 +1061,67 @@
     const servicesDropdownContainer = document.getElementById('services-dropdown-container');
 
     servicesBtn.addEventListener('click', () => {
-      const isHidden = servicesMenu.classList.contains('hidden');
-      if (isHidden) {
-        servicesMenu.classList.remove('hidden');
-        servicesChevron.classList.add('rotate-180', 'text-[#a7da32]');
-      } else {
-        closeDropdown();
-      }
-    });
+  const isHidden = servicesMenu.classList.contains('hidden');
+  // close products first
+  productsMenu.classList.add('hidden');
+  productsChevron.classList.remove('rotate-180', 'text-[#a7da32]');
+
+  if (isHidden) {
+    servicesMenu.classList.remove('hidden');
+    servicesChevron.classList.add('rotate-180', 'text-[#a7da32]');
+  } else {
+    closeDropdown();
+  }
+});
 
     function closeDropdown() {
-      servicesMenu.classList.add('hidden');
-      servicesChevron.classList.remove('rotate-180', 'text-[#a7da32]');
-    }
+  servicesMenu.classList.add('hidden');
+  servicesChevron.classList.remove('rotate-180', 'text-[#a7da32]');
+  productsMenu?.classList.add('hidden');
+  productsChevron?.classList.remove('rotate-180', 'text-[#a7da32]');
+}
 
     document.addEventListener('mousedown', (event) => {
       if (!servicesDropdownContainer.contains(event.target)) {
         closeDropdown();
       }
     });
+
+
+
+    /* ============================================================
+   PRODUCTS DROPDOWN
+   ============================================================ */
+const productsBtn            = document.getElementById('products-btn');
+const productsMenu           = document.getElementById('products-menu');
+const productsChevron        = document.getElementById('products-chevron');
+const productsDropdownCont   = document.getElementById('products-dropdown-container');
+
+productsBtn.addEventListener('click', () => {
+  const isHidden = productsMenu.classList.contains('hidden');
+  // close the other one first
+  servicesMenu.classList.add('hidden');
+  servicesChevron.classList.remove('rotate-180', 'text-[#a7da32]');
+
+  if (isHidden) {
+    productsMenu.classList.remove('hidden');
+    productsChevron.classList.add('rotate-180', 'text-[#a7da32]');
+  } else {
+    closeProductsDropdown();
+  }
+});
+
+function closeProductsDropdown() {
+  productsMenu.classList.add('hidden');
+  productsChevron.classList.remove('rotate-180', 'text-[#a7da32]');
+}
+
+document.addEventListener('mousedown', (event) => {
+  if (!productsDropdownCont.contains(event.target)) {
+    closeProductsDropdown();
+  }
+});
+    
 
     /* ============================================================
        MOBILE MENU
