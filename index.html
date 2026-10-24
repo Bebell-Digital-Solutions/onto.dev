@@ -230,30 +230,23 @@
         <!-- Left Side: Logo + Desktop Center-Left Navigation -->
         <div class="flex items-center gap-10 xl:gap-14">
          <!-- Logo -->
-<a href="#" onclick="showToast('Returned to Datacore Home'); return false;" class="flex items-center group focus:outline-none" aria-label="Datacore Home">
+<a href="#" onclick="showToast('Returned to Datacore Home'); return false;" class="flex items-center group focus:outline-none" aria-label="Onto Labs Home">
   <img
     src="https://ik.imagekit.io/bebell/ONTO.DEV/logo-3d-onto.png"
-    alt="Datacore"
-    class="h-16 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
+    alt="Onto Labs"
+    class="h-12 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
     loading="eager"
   />
 </a>
 
-
-
-
           <!-- Navigation Links (Center-Left, Desktop Only) -->
           <nav class="hidden lg:flex items-center gap-8 font-manrope font-medium text-[14px] text-white">
           
-          
-          
-            <a href="#" onclick="showToast('Viewing Home'); return false;" class="hover:opacity-80 transition-opacity py-1">Home</a>
-            
-            
-            
+            <a href="#" onclick="showToast('Viewing Home'); return false;" class="hover:opacity-80 transition-opacity py-1">Home</a>     
 
             <!-- Services Dropdown Item -->
             <div class="relative" id="services-dropdown-container">
+              
               <button type="button" id="services-btn" class="flex items-center gap-1.5 hover:opacity-80 transition-opacity py-1 focus:outline-none">
                 <span>Services</span>
                 <i data-lucide="chevron-down" id="services-chevron" class="w-4 h-4 transition-transform duration-200"></i>
@@ -264,7 +257,10 @@
                 <div class="px-3 py-1.5 text-[11px] font-cabin uppercase tracking-wider text-[#a7da32]">
                   Datacore Hospitality Suite
                 </div>
+
+                
                 <div class="space-y-1 mt-1">
+                  
                   <button type="button" onclick="closeDropdown(); showToast('Exploring Instant Resort Booking');" class="w-full flex items-start gap-3 p-2.5 rounded-[8px] hover:bg-[#2b3a1e]/70 transition-colors text-left group">
                     <div class="p-2 rounded-[8px] bg-[#2b3a1e] text-[#a7da32] group-hover:bg-[#a7da32] group-hover:text-[#151517] transition-colors mt-0.5">
                       <i data-lucide="building-2" class="w-4 h-4"></i>
@@ -290,6 +286,7 @@
                       <p class="font-inter text-[12px] text-white/70 mt-0.5 leading-snug">AI-assisted travel planning synced with Datacore v3.2</p>
                     </div>
                   </button>
+                  
 
                   <button type="button" onclick="closeDropdown(); showToast('Exploring 24/7 Concierge Desk');" class="w-full flex items-start gap-3 p-2.5 rounded-[8px] hover:bg-[#2b3a1e]/70 transition-colors text-left group">
                     <div class="p-2 rounded-[8px] bg-[#2b3a1e] text-[#a7da32] group-hover:bg-[#a7da32] group-hover:text-[#151517] transition-colors mt-0.5">
@@ -302,6 +299,7 @@
                       <p class="font-inter text-[12px] text-white/70 mt-0.5 leading-snug">Direct VIP priority support anywhere in the world</p>
                     </div>
                   </button>
+                  
                 </div>
               </div>
             </div>
@@ -321,10 +319,10 @@
         <!-- Right Side: Action Buttons (Desktop Only) -->
         <div class="hidden lg:flex items-center gap-3">
           <button type="button" onclick="openModal('signin')" class="font-manrope font-semibold text-[14px] bg-white text-[#171717] border border-[#d4d4d4] rounded-[8px] px-4 py-2.5 hover:bg-[#f6f7f9] active:scale-[0.99] transition-all">
-            Sign In
+            Client Portal
           </button>
           <button type="button" onclick="openModal('get-started')" class="font-manrope font-semibold text-[14px] bg-[#a7da32] hover:bg-[#b9e754] text-[#151517] rounded-[8px] px-4 py-2.5 shadow-[0_4px_20px_rgba(167,218,50,0.25)] active:scale-[0.99] transition-all">
-            Get Started
+            Let's talk
           </button>
         </div>
 
@@ -370,8 +368,8 @@
       </div>
 
       <div class="flex flex-col gap-3 pb-6">
-        <button type="button" onclick="closeMobileMenu(); openModal('signin');" class="w-full font-manrope font-semibold text-[14px] bg-white text-[#171717] border border-[#d4d4d4] rounded-[8px] py-3.5 hover:bg-[#f6f7f9] transition-colors">Sign In</button>
-        <button type="button" onclick="closeMobileMenu(); openModal('get-started');" class="w-full font-manrope font-semibold text-[14px] bg-[#a7da32] hover:bg-[#b9e754] text-[#151517] rounded-[8px] py-3.5 shadow-[0_4px_20px_rgba(167,218,50,0.25)] transition-colors">Get Started</button>
+        <button type="button" onclick="closeMobileMenu(); openModal('signin');" class="w-full font-manrope font-semibold text-[14px] bg-white text-[#171717] border border-[#d4d4d4] rounded-[8px] py-3.5 hover:bg-[#f6f7f9] transition-colors">Customer Portal</button>
+        <button type="button" onclick="closeMobileMenu(); openModal('get-started');" class="w-full font-manrope font-semibold text-[14px] bg-[#a7da32] hover:bg-[#b9e754] text-[#151517] rounded-[8px] py-3.5 shadow-[0_4px_20px_rgba(167,218,50,0.25)] transition-colors">Book a Consultation</button>
       </div>
     </div>
 
