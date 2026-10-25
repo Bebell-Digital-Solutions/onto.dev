@@ -441,9 +441,19 @@
           <!-- NEW: Icons -->
           <i data-lucide="" class="w-5 h-5 text-[#a7da32] shrink-0 mt-0.5 mr-0.5"></i>
 
-                <a href="#" class="hover:opacity-80 transition-opacity py-1">
-            <i data-lucide="languages" class="w-5 h-5 text-[#a7da32] shrink-0 mt-0.5 mr-1.5"></i>
-                 </a>
+                <!-- Translation Icon -->
+<a href="#" class="hover:opacity-80 transition-opacity py-1 group relative">
+  <i data-lucide="languages" class="w-5 h-5 text-[#a7da32] shrink-0 mt-0.5 mr-1.5 group-hover:text-white transition-colors"></i>
+
+  <!-- Tooltip -->
+  <span class="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-2
+               whitespace-nowrap rounded bg-black/90 px-2 py-1 text-xs text-white
+               opacity-0 group-hover:opacity-100 transition-opacity duration-150
+               z-50">
+    English
+  </span>
+</a>
+          
 
          <button type="button" onclick="openModal('signin')" class="font-manrope font-semibold text-[14px] bg-white text-[#171717] border border-[#d4d4d4] rounded-[8px] px-4 py-2.5 hover:bg-[#f6f7f9] active:scale-[0.99] transition-all">
   クライアントポータル
