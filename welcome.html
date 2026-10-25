@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Thank You · Kaito Ota</title>
+
+  <!-- favicon -->
+  <link rel="icon" href="https://ik.imagekit.io/bebell/ONTO.DEV/onto-3d-icon.webp">
+
+  <!-- Google Fonts: Oxanium (weights 400, 700) + Noto Serif JP for the signature -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600&family=Oxanium:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for subtle icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: #000000; /* solid black, no containers */
+      font-family: 'Oxanium', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      color: #ffffff;
+    }
+
+    /* Everything sits directly on black – no card, no borders, no background boxes */
+    .content {
+      max-width: 640px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ------------------------------------------------------------------
+       LOAD REVEAL ANIMATION (identical to coming-soon page)
+    ------------------------------------------------------------------ */
+    @keyframes revealUp {
+      0% {
+        opacity: 0;
+        transform: translate3d(0, 34px, 0) scale(0.97);
+        filter: blur(14px);
+      }
+      55% {
+        opacity: 1;
+        filter: blur(0px);
+      }
+      100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+        filter: none;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      animation: revealUp 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: var(--d, 0s);
+    }
+
+    /* Video – same sizing as the coming-soon page */
+    .video-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .video-wrapper video {
+      width: 250px;
+      height: auto;
+      border-radius: 1.2rem;
+      display: block;
+      background: transparent;
+      margin-bottom: 0;
+    }
+
+    /* Title — Oxanium Bold 700, gradient white→grey (same as coming-soon) */
+    h1 {
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 700;
+      font-size: 2.8rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #ffffff, #a0a0a0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0;
+    }
+
+    .subhead {
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: #9a9a9a;
+      letter-spacing: 0.6px;
+      margin: 0;
+    }
+
+    /* Small reassurance line – mirrors the privacy note styling */
+    .privacy-note {
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: #4a4a4a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 0.2rem;
+    }
+
+    .privacy-note i {
+      font-size: 0.65rem;
+    }
+
+    /* ------------------------------------------------------------------
+       SIGNATURE BLOCK
+       Vertical Japanese signature in brand primary (#a7da32),
+       with a thin lime rule and the romaji name underneath.
+    ------------------------------------------------------------------ */
+    .signature-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+      margin-top: 1.6rem;
+      padding-top: 1.6rem;
+      position: relative;
+      width: 100%;
+      max-width: 260px;
+    }
+
+    /* Thin horizontal rule above the signature */
+    .signature-block::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        #a7da32 40%,
+        #a7da32 60%,
+        transparent
+      );
+      opacity: 0.7;
+    }
+
+    /* Vertical Japanese signature */
+    .signature-jp {
+      font-family: 'Noto Serif JP', 'Oxanium', serif;
+      font-weight: 600;
+      font-size: 2.4rem;
+      line-height: 1;
+      color: #a7da32;
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      letter-spacing: 0.35em;
+      /* subtle glow in the brand color */
+      text-shadow: 0 0 24px rgba(167, 218, 50, 0.35);
+      /* compensate for letter-spacing so the block stays centered */
+      padding-left: 0.35em;
+      user-select: none;
+    }
+
+    /* Romaji name below the signature */
+    .signature-romaji {
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 400;
+      font-size: 0.85rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: #6a6a6a;
+      padding-left: 0.5em; /* balance the letter-spacing */
+    }
+
+    /* A small "— signed —" style caption is unnecessary; the rule + name carry it */
+
+    /* Responsive adjustments – identical breakpoints to coming-soon */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .subhead {
+        font-size: 1rem;
+      }
+      .video-wrapper video {
+        width: 220px;
+      }
+      .signature-jp {
+        font-size: 2rem;
+      }
+      .signature-romaji {
+        font-size: 0.75rem;
+        letter-spacing: 0.4em;
+      }
+    }
+
+    @media (min-width: 381px) {
+      .video-wrapper video {
+        width: 250px;
+      }
+    }
+
+    /* Respect users who prefer less motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <!-- Video: autoplay + loop + muted + playsinline (same asset as coming-soon) -->
+    <div class="video-wrapper reveal" style="--d: 0.05s;">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        width="250"
+        style="width:350px; height:auto;"
+      >
+        <source src="https://ik.imagekit.io/bebell/ONTO.DEV/Hero-Banners.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <h1 class="reveal" style="--d: 0.20s;">Thank You</h1>
+    <div class="subhead reveal" style="--d: 0.32s;">You're on the list! We'll be in touch soon.</div>
+
+    <!-- Signature: vertical Japanese name in brand primary + romaji below -->
+    <div class="signature-block reveal" style="--d: 0.48s;">
+      <span class="signature-jp" aria-label="Kaito Ota">海斗太田</span>
+      <span class="signature-romaji">Kaito Ota</span>
+    </div>
+
+    <div class="privacy-note reveal" style="--d: 0.62s;">
+     OntoLabs <i class="fas fa-heart"></i> Crafted with care
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // Preserve the same robust video autoplay handling as the coming-soon page
+      const video = document.querySelector('video');
+      if (video) {
+        video.setAttribute('playsinline', '');
+        video.setAttribute('muted', '');
+        video.muted = true;
+        video.play().catch(function (err) {
+          console.warn('Autoplay was prevented:', err);
+          const playOnInteraction = function () {
+            video.play().catch(() => {});
+            document.removeEventListener('click', playOnInteraction);
+          };
+          document.addEventListener('click', playOnInteraction, { once: true });
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
