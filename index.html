@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Under Development · Coming Soon</title>
+
+  <!-- favicon -->
+  <link rel="icon" href="https://ik.imagekit.io/bebell/ONTO.DEV/onto-3d-icon.webp">
+
+  <!-- Google Fonts: Oxanium (weights 400, 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600&family=Oxanium:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for subtle icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: #000000; /* solid black, no containers */
+      font-family: 'Oxanium', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      color: #ffffff;
+    }
+
+    /* Everything sits directly on black – no card, no borders, no background boxes */
+    .content {
+      max-width: 640px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ------------------------------------------------------------------
+       1. LOAD REVEAL ANIMATION
+       Elements fade + rise + de-blur in a staggered sequence.
+       Stagger is controlled by the --d custom property on each element.
+    ------------------------------------------------------------------ */
+    @keyframes revealUp {
+      0% {
+        opacity: 0;
+        transform: translate3d(0, 34px, 0) scale(0.97);
+        filter: blur(14px);
+      }
+      55% {
+        opacity: 1;
+        filter: blur(0px);
+      }
+      100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+        filter: none;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      animation: revealUp 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: var(--d, 0s);
+    }
+
+    /* Video – 250px wide, height auto, rounded corners only (no border/box) */
+    .video-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .video-wrapper video {
+      width: 250px;
+      height: auto;
+      border-radius: 1.2rem; /* subtle rounding, still plain */
+      display: block;
+      background: transparent;
+      margin-bottom: 0;
+    }
+
+    /* Title — Oxanium Bold 700 */
+    h1 {
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 700;
+      font-size: 2.8rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #ffffff, #a0a0a0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0;
+    }
+
+    .subhead {
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: #9a9a9a;
+      letter-spacing: 0.6px;
+      margin: 0;
+    }
+
+    /* Subscription form – minimal, no background, no borders */
+    .subscribe-form {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .subscribe-form label {
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 400;
+      font-size: 0.95rem;
+      color: #6a6a6a;
+      text-align: center;
+      padding-left: 0.2rem;
+      margin: 0 auto;
+      margin-top: 1rem;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .subscribe-form label i {
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .input-group input {
+      flex: 1 1 240px;
+      padding: 0.95rem 1.3rem;
+      border-radius: 10px;
+      border: .3px solid #a7da32;
+      background: #0c0c0c;
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.2s;
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 400;
+      min-width: 0;
+    }
+
+    .input-group input::placeholder {
+      color: #555;
+      font-weight: 300;
+    }
+
+    .input-group input:focus {
+      border-color: #6a6a6a;
+      background: #141414;
+    }
+
+    /* ------------------------------------------------------------------
+       2. BUTTON + LIQUID FILL HOVER
+       The ::before pseudo-element is a huge organic blob parked below the
+       button. On hover it rises up and fills the button, wobbling gently.
+    ------------------------------------------------------------------ */
+    .input-group button {
+      flex: 0 0 auto;
+      font-family: 'Manrope', sans-serif;
+      padding: 0.95rem 2rem;
+      border-radius: 10px;
+      border: .3px solid #a7da32;
+      background: #2b3a1e;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .input-group button:hover {
+      background: #384a24;
+      transform: scale(1.02);
+    }
+
+    .input-group button:active {
+      transform: scale(0.98);
+    }
+
+    /* Icon: lime by default (native JSON color) → white on hover */
+    .input-group button lottie-player {
+      transition: filter 0.4s ease;
+      filter: none; /* lime = native color */
+    }
+
+    .input-group button:hover lottie-player,
+    .input-group button:focus-visible lottie-player {
+      /* convert lime → white */
+      filter: brightness(0) invert(1);
+    }
+
+    .input-group button i {
+      font-size: 1.05rem;
+      color: #a7da32;
+    }
+
+    /* Status messages – plain, no boxes */
+    .form-message {
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 400;
+      font-size: 0.9rem;
+      min-height: 1.5rem;
+      color: #b0b0b0;
+      transition: 0.2s;
+      text-align: left;
+      padding-left: 0.3rem;
+      width: 100%;
+    }
+
+    .form-message.success {
+      color: #8bc34a;
+    }
+
+    .form-message.error {
+      color: #ff6b6b;
+    }
+
+    .privacy-note {
+      font-family: 'Oxanium', sans-serif;
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: #4a4a4a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 0.2rem;
+    }
+
+    .privacy-note i {
+      font-size: 0.65rem;
+    }
+
+    /* Confetti canvas overlay – sits above everything, ignores pointer events */
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      display: block;
+    }
+
+
+
+/* ===== NEON CURSOR TRAIL (lime #a7da32 palette) ===== */
+  #neon-trail-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;   /* never blocks clicks */
+    z-index: 9999;          /* above page content */
+    opacity: 0;
+    transition: opacity .5s ease-out;
+  }
+  @media (pointer: coarse), (prefers-reduced-motion: reduce) {
+    #neon-trail-canvas { display: none !important; }
+  }
+  
+  
+    
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .subhead {
+        font-size: 1rem;
+      }
+      .input-group button {
+        padding: 0.95rem 1.5rem;
+        width: 100%;
+      }
+      .input-group input {
+        flex: 1 1 100%;
+      }
+      .video-wrapper video {
+        width: 220px;
+      }
+    }
+
+    @media (min-width: 381px) {
+      .video-wrapper video {
+        width: 250px;
+      }
+    }
+
+    /* Respect users who prefer less motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
+      .input-group button:hover {
+        transform: none;
+      }
+      .input-group button lottie-player {
+        transition: none;
+      }
+      /* Confetti is skipped entirely via JS when reduced motion is on */
+    }
+  </style>
+</head>
+<body>
+  <!-- Confetti canvas (covers viewport, ignores clicks) -->
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <!-- Everything directly on the black background — no containers, no cards, no borders -->
+  <div class="content">
+
+
+
+     <!-- ============ NEON CURSOR TRAIL  ============ -->
+    <canvas id="neon-trail-canvas" aria-hidden="true"></canvas>
+
+
+   
+    <!-- Video: autoplay + loop + muted + playsinline -->
+    <div class="video-wrapper reveal" style="--d: 0.05s;">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        width="250"
+        style="width:350px; height:auto;"
+      >
+        <source src="https://ik.imagekit.io/bebell/ONTO.DEV/Hero-Banners.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <h1 class="reveal" style="--d: 0.20s;">Under Development</h1>
+    <div class="subhead reveal" style="--d: 0.32s;">We're crafting something special</div>
+
+    <!-- Subscription form – posts directly into the hidden MailerLite iframe -->
+    <form
+      id="subscribeForm"
+      class="subscribe-form"
+      method="post"
+      target="ml-target"
+      action="https://assets.mailerlite.com/jsonp/2739431/forms/202253140413646531/subscribe"
+    >
+      <label for="emailInput" class="reveal" style="--d: 0.44s;">
+        <i class="fas fa-envelope"></i> Get notified when we launch
+      </label>
+
+      <div class="input-group reveal" style="--d: 0.54s;">
+        <input
+          type="email"
+          id="emailInput"
+          name="fields[email]"
+          placeholder="you@example.com"
+          required
+          autocomplete="email"
+        >
+
+        <button type="submit" id="subscribeBtn">
+          <lottie-player
+            src="/assets/icons/send-lime.json"
+            data-lottie-hover
+            style="width:26px;height:26px;flex:0 0 26px"
+            class="pointer-events-none">
+          </lottie-player>
+          Subscribe
+        </button>
+      </div>
+
+      <div id="formMessage" class="form-message"></div>
+
+      <div class="privacy-note reveal" style="--d: 0.68s;">
+        <i class="fas fa-lock"></i> No spam. Unsubscribe anytime.
+      </div>
+
+      <!-- MailerLite required hidden fields -->
+      <input type="hidden" name="ml-submit" value="1">
+      <input type="hidden" name="anticsrf" value="true">
+    </form>
+  </div>
+
+  <!-- Hidden MailerLite embed used only as a submission target -->
+  <iframe
+    id="ml-target"
+    name="ml-target"
+    src="about:blank"
+    style="display:none;"
+    title="MailerLite hidden subscribe target"
+    aria-hidden="true"
+    tabindex="-1"
+  ></iframe>
+
+  <!-- ------------------------------------------------------------------
+       Confetti engine – tiny, dependency-free, brand-colored.
+       Fires a burst from the subscribe button on successful submission.
+  ------------------------------------------------------------------ -->
+  <script>
+    (function () {
+      const canvas = document.getElementById('confettiCanvas');
+      const ctx = canvas.getContext('2d');
+
+      const BRAND_COLORS = ['#a7da32', '#568e07', '#325806'];
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let particles = [];
+      let animationId = null;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      function resizeCanvas() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.floor(window.innerWidth * dpr);
+        canvas.height = Math.floor(window.innerHeight * dpr);
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      function rand(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      // Create a burst of particles from a given point (CSS pixels)
+      function spawnBurst(originX, originY, count) {
+        const now = performance.now();
+        for (let i = 0; i < count; i++) {
+          // Fire mostly upward and outward in a fan
+          const angle = rand(-Math.PI * 0.95, -Math.PI * 0.05);
+          const speed = rand(6, 14);
+          particles.push({
+            x: originX,
+            y: originY,
+            vx: Math.cos(angle) * speed + rand(-2, 2),
+            vy: Math.sin(angle) * speed + rand(-2, 1),
+            size: rand(5, 10),
+            rotation: rand(0, Math.PI * 2),
+            rotationSpeed: rand(-0.25, 0.25),
+            // Slight horizontal stretch for a ribbon/paper feel
+            stretch: rand(0.6, 1.6),
+            color: BRAND_COLORS[Math.floor(Math.random() * BRAND_COLORS.length)],
+            shape: Math.random() < 0.25 ? 'circle' : 'rect',
+            gravity: rand(0.22, 0.32),
+            drag: 0.985,
+            bornAt: now,
+            ttl: rand(2200, 3200),
+            wobblePhase: rand(0, Math.PI * 2),
+            wobbleSpeed: rand(0.05, 0.12),
+          });
+        }
+      }
+
+      function drawParticle(p) {
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation);
+        ctx.fillStyle = p.color;
+        if (p.shape === 'circle') {
+          ctx.beginPath();
+          ctx.arc(0, 0, p.size * 0.45, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          // Rounded rectangle "paper" piece with slight stretch
+          const w = p.size * p.stretch;
+          const h = p.size * 0.55;
+          const r = Math.min(w, h) * 0.35;
+          ctx.beginPath();
+          if (ctx.roundRect) {
+            ctx.roundRect(-w / 2, -h / 2, w, h, r);
+          } else {
+            // Fallback for older browsers
+            ctx.rect(-w / 2, -h / 2, w, h);
+          }
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+
+      function tick(now) {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
+          const age = now - p.bornAt;
+
+          // Physics
+          p.vy += p.gravity;
+          p.vx *= p.drag;
+          p.vy *= p.drag;
+
+          // Gentle horizontal wobble as it falls
+          p.wobblePhase += p.wobbleSpeed;
+          p.x += p.vx + Math.sin(p.wobblePhase) * 0.6;
+          p.y += p.vy;
+
+          p.rotation += p.rotationSpeed;
+
+          // Fade out near end of life
+          const life = 1 - age / p.ttl;
+          if (age >= p.ttl || p.y > window.innerHeight + 40) {
+            particles.splice(i, 1);
+            continue;
+          }
+          ctx.globalAlpha = Math.max(0, Math.min(1, life * 1.4));
+          drawParticle(p);
+        }
+        ctx.globalAlpha = 1;
+
+        if (particles.length > 0) {
+          animationId = requestAnimationFrame(tick);
+        } else {
+          animationId = null;
+          ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        }
+      }
+
+      function fireConfettiFromElement(el, totalCount) {
+        if (prefersReducedMotion) return; // respect user preference
+
+        const rect = el.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+
+        // Three quick bursts from slightly different points for a fuller feel
+        spawnBurst(cx, cy, Math.round(totalCount * 0.5));
+        setTimeout(() => spawnBurst(cx - rect.width * 0.15, cy, Math.round(totalCount * 0.25)), 90);
+        setTimeout(() => spawnBurst(cx + rect.width * 0.15, cy, Math.round(totalCount * 0.25)), 180);
+
+        if (!animationId) {
+          animationId = requestAnimationFrame(tick);
+        }
+      }
+
+      // Expose globally so the form handler can trigger it
+      window.fireBrandConfetti = fireConfettiFromElement;
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const form = document.getElementById('subscribeForm');
+      const emailInput = document.getElementById('emailInput');
+      const formMessage = document.getElementById('formMessage');
+      const subscribeBtn = document.getElementById('subscribeBtn');
+      const iframe = document.getElementById('ml-target');
+
+      let awaitingResult = false;
+      let fallbackTimer = null;
+      let alreadyCelebrated = false;
+
+      function showMessage(text, type) {
+        formMessage.textContent = text;
+        formMessage.className = 'form-message ' + (type || '');
+      }
+
+      function resetButton() {
+        subscribeBtn.disabled = false;
+        subscribeBtn.innerHTML =
+          '<lottie-player src="/assets/icons/send-lime.json" data-lottie-hover ' +
+          'style="width:26px;height:26px;flex:0 0 26px" class="pointer-events-none"></lottie-player>' +
+          'Subscribe';
+        bindLottieHover(subscribeBtn);
+      }
+
+      function setLoading() {
+        subscribeBtn.disabled = true;
+        subscribeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      }
+
+      function showSuccess() {
+        if (alreadyCelebrated) return;
+        alreadyCelebrated = true;
+
+        awaitingResult = false;
+        if (fallbackTimer) {
+          clearTimeout(fallbackTimer);
+          fallbackTimer = null;
+        }
+
+        resetButton();
+        showMessage("🎉 Thanks! You're on the list.", 'success');
+        form.reset();
+
+        // Trigger the brand-colored confetti burst from the button
+        if (typeof window.fireBrandConfetti === 'function') {
+          window.fireBrandConfetti(subscribeBtn, 90);
+        }
+      }
+
+      function bindLottieHover(btn) {
+        btn.querySelectorAll('[data-lottie-hover]').forEach((icon) => {
+          btn.addEventListener('mouseenter', () => {
+            icon.speed = 0.6;
+            icon.stop();
+            icon.play();
+          });
+          btn.addEventListener('mouseleave', () => icon.stop());
+        });
+      }
+
+      // Expose the MailerLite success callback (matches the form ID in the embed)
+      window.ml_webform_success_47565697 = function () {
+        showSuccess();
+      };
+
+      form.addEventListener('submit', function (e) {
+        const email = emailInput.value.trim();
+
+        if (!email) {
+          e.preventDefault();
+          showMessage('Please enter your email address.', 'error');
+          return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          e.preventDefault();
+          showMessage('Please enter a valid email address.', 'error');
+          return;
+        }
+
+        // Reset celebration gate for this new submission
+        alreadyCelebrated = false;
+
+        // Validation passed — let the browser POST into the hidden iframe
+        showMessage('', '');
+        setLoading();
+        awaitingResult = true;
+
+        // Safety net: if no callback/load fires within 8s, assume success
+        if (fallbackTimer) clearTimeout(fallbackTimer);
+        fallbackTimer = setTimeout(() => {
+          if (awaitingResult) showSuccess();
+        }, 8000);
+      });
+
+      // Fallback success signal: the iframe finished loading its response
+      iframe.addEventListener('load', function () {
+        // Ignore the initial about:blank load
+        if (!awaitingResult) return;
+        // Give the JSONP callback a brief moment to fire first
+        setTimeout(() => {
+          if (awaitingResult) showSuccess();
+        }, 400);
+      });
+
+      // Ensure video plays inline and autoplay is attempted
+      const video = document.querySelector('video');
+      if (video) {
+        video.setAttribute('playsinline', '');
+        video.setAttribute('muted', '');
+        video.muted = true;
+        video.play().catch(function (err) {
+          console.warn('Autoplay was prevented:', err);
+          const playOnInteraction = function () {
+            video.play().catch(() => {});
+            document.removeEventListener('click', playOnInteraction);
+          };
+          document.addEventListener('click', playOnInteraction, { once: true });
+        });
+      }
+
+      // Bind lottie hover to the initial button
+      bindLottieHover(subscribeBtn);
+    })();
+  </script>
+
+
+
+  
+
+   <!-- Interactive cursor trail --> 
+  <script>
+(function () {
+  const isTouch = window.matchMedia('(pointer: coarse)').matches;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (isTouch || reducedMotion) return;
+
+  // Create canvas if it doesn't exist — makes this truly drop-in
+  let canvas = document.getElementById('neon-trail-canvas');
+  if (!canvas) {
+    canvas = document.createElement('canvas');
+    canvas.id = 'neon-trail-canvas';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(canvas);
+  }
+
+  const ctx = canvas.getContext('2d');
+
+  // ---- DPI-aware sizing (full viewport) ----
+  let dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let W = 0, H = 0;
+  function resize() {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width  = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // ================================================================
+  //  STATE
+  // ================================================================
+  const TRAIL_LENGTH    = 26;
+  const POINT_LIFETIME  = 420;
+  const LINE_WIDTH      = 6;
+  const SUBSTEPS        = 4;
+  const STAR_RATE       = 0.55;
+
+  const points = [];
+  const stars  = [];
+
+  let lastX = -9999, lastY = -9999;
+  let raf = null;
+
+  function spawnStar(x, y) {
+    stars.push({
+      x, y,
+      born: performance.now(),
+      vx: (Math.random() - 0.5) * 0.9,
+      vy: 0.15 + Math.random() * 0.55,
+      size: 1.8 + Math.random() * 2.6,
+      rot: Math.random() * Math.PI,
+      vr: (Math.random() - 0.5) * 0.06
+    });
+  }
+
+  // ================================================================
+  //  INPUT — listen on window, coordinates are already viewport-relative
+  // ================================================================
+  window.addEventListener('mousemove', (e) => {
+    canvas.style.opacity = '1';
+
+    const x = e.clientX;
+    const y = e.clientY;
+
+    const dx = x - lastX;
+    const dy = y - lastY;
+    const dist = Math.hypot(dx, dy);
+    if (dist < 0.5) return;
+
+    for (let i = 1; i <= SUBSTEPS; i++) {
+      const t = i / SUBSTEPS;
+      const px = lastX + dx * t;
+      const py = lastY + dy * t;
+      points.push({ x: px, y: py, born: performance.now() });
+      if (Math.random() < STAR_RATE * 0.35) spawnStar(px, py);
+    }
+    if (points.length > TRAIL_LENGTH) points.splice(0, points.length - TRAIL_LENGTH);
+
+    lastX = x;
+    lastY = y;
+
+    if (raf === null) raf = requestAnimationFrame(render);
+  });
+
+  window.addEventListener('mouseleave', () => {
+    canvas.style.opacity = '0';
+    points.length = 0;
+    stars.length  = 0;
+    lastX = lastY = -9999;
+  });
+
+  // ================================================================
+  //  DRAW STAR
+  // ================================================================
+  function drawStar(s, alpha, scale) {
+    const r = s.size * scale;
+    ctx.save();
+    ctx.translate(s.x, s.y);
+    ctx.rotate(s.rot);
+
+    const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, r * 2.4);
+    grad.addColorStop(0,   `rgba(233, 255, 176, ${alpha * 0.9})`);
+    grad.addColorStop(0.5, `rgba(167, 218, 50, ${alpha * 0.4})`);
+    grad.addColorStop(1,   `rgba(167, 218, 50, 0)`);
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(0, 0, r * 2.4, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.strokeStyle = `rgba(233, 255, 176, ${alpha})`;
+    ctx.lineWidth = 1;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(0, -r);  ctx.lineTo(0, r);
+    ctx.moveTo(-r, 0);  ctx.lineTo(r, 0);
+    const d = r * 0.55;
+    ctx.moveTo(-d, -d); ctx.lineTo(d, d);
+    ctx.moveTo(-d,  d); ctx.lineTo(d, -d);
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  // ================================================================
+  //  RENDER
+  // ================================================================
+  function render() {
+    const now = performance.now();
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter';
+
+    while (points.length && now - points[0].born > POINT_LIFETIME) points.shift();
+    for (let i = stars.length - 1; i >= 0; i--) {
+      if (now - stars[i].born > 900) stars.splice(i, 1);
+    }
+
+    if (points.length >= 2) {
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      // outer glow
+      for (let i = 1; i < points.length; i++) {
+        const a = points[i - 1], b = points[i];
+        const t = i / points.length;
+        const age = 1 - Math.min((now - b.born) / POINT_LIFETIME, 1);
+        const strength = t * age;
+
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        const mx = (a.x + b.x) / 2;
+        const my = (a.y + b.y) / 2;
+        ctx.quadraticCurveTo(a.x, a.y, mx, my);
+        ctx.strokeStyle = `rgba(167, 218, 50, ${strength * 0.32})`;
+        ctx.lineWidth = LINE_WIDTH * 2.6 * strength;
+        ctx.stroke();
+      }
+
+      // inner core
+      for (let i = 1; i < points.length; i++) {
+        const a = points[i - 1], b = points[i];
+        const t = i / points.length;
+        const age = 1 - Math.min((now - b.born) / POINT_LIFETIME, 1);
+        const strength = t * age;
+
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        const mx = (a.x + b.x) / 2;
+        const my = (a.y + b.y) / 2;
+        ctx.quadraticCurveTo(a.x, a.y, mx, my);
+        ctx.strokeStyle = `rgba(233, 255, 176, ${strength * 0.85})`;
+        ctx.lineWidth = LINE_WIDTH * strength;
+        ctx.stroke();
+      }
+    }
+
+    for (let i = 0; i < stars.length; i++) {
+      const s = stars[i];
+      const age = (now - s.born) / 900;
+      if (age >= 1) continue;
+
+      s.x += s.vx;
+      s.y += s.vy;
+      s.rot += s.vr;
+
+      const fade    = 1 - age;
+      const twinkle = 0.6 + 0.4 * Math.sin(now * 0.015 + i);
+      const alpha   = fade * twinkle;
+      const scale   = 0.6 + (1 - fade) * 0.9;
+
+      drawStar(s, alpha, scale);
+    }
+
+    // Keep looping while there's anything to animate
+    if (points.length || stars.length) {
+      raf = requestAnimationFrame(render);
+    } else {
+      raf = null;
+      ctx.clearRect(0, 0, W, H);
+    }
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (raf !== null) { cancelAnimationFrame(raf); raf = null; }
+    } else if (raf === null && (points.length || stars.length)) {
+      raf = requestAnimationFrame(render);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
